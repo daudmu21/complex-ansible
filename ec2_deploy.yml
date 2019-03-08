@@ -1,0 +1,15 @@
+---
+- name: Create ec2 instance
+  hosts: localhost
+  vars_files:
+    - regions/{{ region }}.yml
+  tasks: 
+    - name: Replace this line here
+      ec2: 
+        key_name: "{{ key_name}}"
+        assign_public_ip: yes
+        instance_type: "{{ instance_type }}"
+        region: "{{ region }}"
+        count: 1
+        image: "{{ image }}"
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
